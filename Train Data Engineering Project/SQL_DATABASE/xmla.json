@@ -1,0 +1,603 @@
+{
+  "name": "{{Dataset_Name}}",
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "{{Dataset_Name}}",
+    "culture": "en-US",
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "Avg_train_by_source_station",
+        "sourceLineageTag": "[dbo].[Avg_train_by_source_station]",
+        "columns": [
+          {
+            "name": "Source_Station_Name",
+            "dataType": "string",
+            "sourceColumn": "Source_Station_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Source_Station_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Avg_Trains_Per_Day",
+            "dataType": "int64",
+            "sourceColumn": "Avg_Trains_Per_Day",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Avg_Trains_Per_Day",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Avg_train_by_source_station",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Basic Statistics",
+        "sourceLineageTag": "[dbo].[Basic Statistics]",
+        "columns": [
+          {
+            "name": "Total_Trains",
+            "dataType": "int64",
+            "sourceColumn": "Total_Trains",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Total_Trains",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Unique_Source_Stations",
+            "dataType": "int64",
+            "sourceColumn": "Unique_Source_Stations",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Unique_Source_Stations",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Unique_Destination_Stations",
+            "dataType": "int64",
+            "sourceColumn": "Unique_Destination_Stations",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "Unique_Destination_Stations",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Most_Common_Source",
+            "dataType": "string",
+            "sourceColumn": "Most_Common_Source",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Most_Common_Source",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Most_Common_Destination",
+            "dataType": "string",
+            "sourceColumn": "Most_Common_Destination",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Most_Common_Destination",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Basic Statistics",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "No_of_trains_by_source_station",
+        "sourceLineageTag": "[dbo].[No_of_trains_by_source_station]",
+        "columns": [
+          {
+            "name": "Source_Station_Name",
+            "dataType": "string",
+            "sourceColumn": "Source_Station_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Source_Station_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "TrainCount",
+            "dataType": "int64",
+            "sourceColumn": "TrainCount",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "TrainCount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "No_of_trains_by_source_station",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Railway_info",
+        "sourceLineageTag": "[dbo].[Railway_info]",
+        "columns": [
+          {
+            "name": "Train_No",
+            "dataType": "int64",
+            "sourceColumn": "Train_No",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "Train_No",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Train_Name",
+            "dataType": "string",
+            "sourceColumn": "Train_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Train_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Source_Station_Name",
+            "dataType": "string",
+            "sourceColumn": "Source_Station_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Source_Station_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Destination_Station_Name",
+            "dataType": "string",
+            "sourceColumn": "Destination_Station_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Destination_Station_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "days",
+            "dataType": "string",
+            "sourceColumn": "days",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "days",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "day_type",
+            "dataType": "string",
+            "sourceColumn": "day_type",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "day_type",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Railway_info",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Train_start_from_Ajni",
+        "sourceLineageTag": "[dbo].[Train_start_from_Ajni]",
+        "columns": [
+          {
+            "name": "Train_No",
+            "dataType": "int64",
+            "sourceColumn": "Train_No",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "Train_No",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Train_Name",
+            "dataType": "string",
+            "sourceColumn": "Train_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Train_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Source_Station_Name",
+            "dataType": "string",
+            "sourceColumn": "Source_Station_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Source_Station_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Destination_Station_Name",
+            "dataType": "string",
+            "sourceColumn": "Destination_Station_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Destination_Station_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "days",
+            "dataType": "string",
+            "sourceColumn": "days",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "days",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "day_type",
+            "dataType": "string",
+            "sourceColumn": "day_type",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "day_type",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Train_start_from_Ajni",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "Trains_on_Saturday",
+        "sourceLineageTag": "[dbo].[Trains_on_Saturday]",
+        "columns": [
+          {
+            "name": "Train_No",
+            "dataType": "int64",
+            "sourceColumn": "Train_No",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "Train_No",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Train_Name",
+            "dataType": "string",
+            "sourceColumn": "Train_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Train_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Source_Station_Name",
+            "dataType": "string",
+            "sourceColumn": "Source_Station_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Source_Station_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "Destination_Station_Name",
+            "dataType": "string",
+            "sourceColumn": "Destination_Station_Name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "Destination_Station_Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "days",
+            "dataType": "string",
+            "sourceColumn": "days",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "days",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "Trains_on_Saturday",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "train_by_week",
+        "sourceLineageTag": "[dbo].[train_by_week]",
+        "columns": [
+          {
+            "name": "days",
+            "dataType": "string",
+            "sourceColumn": "days",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "days",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "TrainCount",
+            "dataType": "int64",
+            "sourceColumn": "TrainCount",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "TrainCount",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "train_by_week",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": "let\n    database = {{TDS_Endpoint}}\nin\n    database\n"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "SourceLineageTagType",
+        "value": "DatabaseFullyQualifiedName"
+      }
+    ]
+  }
+}
